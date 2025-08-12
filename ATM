@@ -11,7 +11,7 @@ public class Main {
         if (pass==1234){
             while (b){
                 System.out.println("welcome user");
-                System.out.println("chose what you want: 1-deposit money 2-withdraw money \n 3-check balance 4-exit");
+                System.out.println("chose what you want:\n 1-deposit money 2-withdraw money \n 3-check balance 4-exit");
                 int menuChoice= input.nextInt();
                 double amount;
                 switch (menuChoice){
