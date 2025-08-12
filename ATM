@@ -5,14 +5,14 @@ public class Main {
 
         double balance =1000.00;
         boolean run = true;
-        int pass;
+        int PIN;
         do {
 
             System.out.print("Enter PIN: ");
-            pass = input.nextInt();
+            PIN = input.nextInt();
             
 
-            if (pass != 1234) {
+            if (PIN != 1234) {
                 System.out.println("Incorrect passcode, please try again.");
             }else System.out.println("Welcome!");
         }
