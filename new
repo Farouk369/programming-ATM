@@ -1,1 +1,69 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double balance =1000.00;
+        boolean run = true;
+        int pass;
+        do {
+
+            System.out.print("Enter PIN: ");
+            pass = input.nextInt();
+
+
+            if (pass != 1234) {
+                System.out.println("Incorrect passcode, please try again.");
+            }else System.out.println("Welcome!");
+        }
+        while (pass != 1234);
+
+            while (run){
+
+                System.out.println("\n1-deposit money\n2-withdraw money\n3-check balance\n4-exit");
+                System.out.println("Enter choice:");
+                int menuChoice= input.nextInt();
+                double amount;
+                switch (menuChoice){
+                    case 1:
+                        System.out.println("Enter amount: ");
+                        amount = input.nextDouble();
+
+                        if (amount > 0) {
+                            balance += amount;
+                            balance = Math.round(balance * 100.0) / 100.0;
+
+                            System.out.print("deposit was successfully. ");
+                            System.out.printf("New balance: $%.2f\n ", balance);
+                        }else System.out.println("Invalid amount. Must be greater than 0.");
+
+                        break;
+                    case 2:
+                        System.out.print("Enter amount: ");
+                        amount =Math.abs( input.nextDouble());
+                        if (amount > 0) {
+                            if (balance >= amount) {
+                                balance -= amount;
+                                balance = Math.round(balance * 100.0) / 100.0;
+                                System.out.print(" Withdrawal successful! ");
+                                System.out.printf("Your balance is $%.2f\n", balance);
+
+                            } else System.out.printf(" Insufficient balance. Your balance is $%.2f\n", balance);
+
+                        }else System.out.println("Invalid amount. Must be greater than 0.");
+                        break;
+                    case 3:
+                        int balanceInt = (int) balance;
+                        System.out.println("your balance is "+balanceInt);
+                        break;
+                    case 4:
+                        run =false;
+                        break;
+                    default:
+                        System.out.println("invalid number");
+                }
+            }
+            System.out.println("thx for using ATM");
+        }
+    }
 
