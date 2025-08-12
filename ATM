@@ -28,6 +28,11 @@ public class Main {
                     case 2:
                         System.out.println("what the withdraw money you want");
                         amount = input.nextDouble();
+                        if (balance<amount){
+                            System.out.println("your balance" +balance+" dosen't support you amont");
+                        }else {
+                            balance=balance-amount;
+                        }
                         break;
                     case 3:
                         System.out.println("your balance is "+balance);
