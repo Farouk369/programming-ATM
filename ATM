@@ -53,8 +53,7 @@ public class Main {
                         }else System.out.println("Invalid amount. Must be greater than 0.");
                         break;
                     case 3:
-                        int balanceInt = (int) balance;
-                        System.out.println("your balance is "+balanceInt);
+                        System.out.printf("Your balance is $%.2f\n", balance);
                         break;
                     case 4:
                         run =false;
