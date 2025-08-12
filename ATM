@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double balance =1000;
+        boolean b = true;
+
+        System.out.println("Enter the passcode");
+        int pass = input.nextInt();
+        if (pass==1234){
+            while (b){
+                System.out.println("welcome user");
+                System.out.println("chose what you want: 1-deposit money 2-withdraw money \n 3-check balance 4-exit");
+                int menuChoice= input.nextInt();
+                double amount;
+                switch (menuChoice){
+
+                    case 1:
+                         System.out.println("what amout you need to deposit");
+                         amount = input.nextDouble();
+                        break;
+                    case 2:
+                        System.out.println("what the withdraw money you want");
+                        amount = input.nextDouble();
+                        break;
+                    case 3:
+                        System.out.println("your balance is "+balance);
+                        break;
+                    case 4:
+                        b=false;
+                        break;
+                    default:
+                        System.out.println("invalid number");
+                }
+
+            }
+            System.out.println("thx for using ATM");
+        }
+
+
+    }
+}
