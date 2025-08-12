@@ -16,7 +16,7 @@ public class Main {
                 System.out.println("Incorrect passcode, please try again.");
             }else System.out.println("Welcome!");
         }
-        while (pass != 1234);
+        while (PIN != 1234);
 
             while (run){
 
