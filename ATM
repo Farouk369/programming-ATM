@@ -3,64 +3,64 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        double balance =1000.00;
+        double balance = 1000.00;
         boolean run = true;
-        int PIN;
+        String PIN;
+        int PIN_int;
         do {
-
             System.out.print("Enter PIN: ");
-            PIN = input.nextInt();
+            PIN = input.next();
+            PIN_int = Integer.parseInt(PIN);
 
-
-            if (PIN != 1234) {
+            if (PIN_int != 1234) {
                 System.out.println("Incorrect passcode, please try again.");
-            }else System.out.println("Welcome!");
+            } else System.out.print("Welcome!");
         }
-        while (PIN != 1234);
+        while (PIN_int != 1234);
 
-            while (run){
+        while (run) {
 
-                System.out.println("\n1-deposit money\n2-withdraw money\n3-check balance\n4-exit");
-                System.out.println("Enter choice:");
-                int menuChoice= input.nextInt();
-                double amount;
-                switch (menuChoice){
-                    case 1:
-                        System.out.println("Enter integer amount: ");
-                        amount = input.nextDouble();
-                        int amountInt = (int) amount; 
-                        if (amountInt > 0) {
-                            balance += amountInt;
+            System.out.println("\n1-deposit money\n2-withdraw money\n3-check balance\n4-exit");
+            System.out.print("Enter choice:");
+            int menuChoice = input.nextInt();
+            double amount;
+            switch (menuChoice) {
+                case 1:
+                    System.out.print("Enter amount: ");
+                    amount = input.nextDouble();
+
+                    if (amount > 0) {
+                        balance += amount;
+                        balance = Math.round(balance);
+                        System.out.print("deposit was successfully. ");
+                        System.out.printf("New balance: $%.2f " , balance);
+                    } else System.out.println("Invalid amount. Must be greater than 0.");
+
+                    break;
+                case 2:
+                    System.out.print("Enter amount: ");
+                    amount = input.nextDouble();
+                    if (amount > 0) {
+                        if (balance >= amount) {
+                            balance -= amount;
                             balance = Math.round(balance);
-                            System.out.print("deposit was successfully. ");
-                            System.out.printf("New balance: $%.2f\n ", balance);
-                        }else System.out.println("Invalid amount. Must be greater than 0.");
+                            System.out.print(" Withdrawal successful! ");
+                            System.out.printf("Your balance is $%.2f\n", balance);
 
-                        break;
-                    case 2:
-                        System.out.print("Enter amount: ");
-                        amount =input.nextDouble();
-                        if (amount > 0) {
-                            if (balance >= amount) {
-                                balance -= amount;
-                                balance = Math.round(balance );
-                                System.out.print(" Withdrawal successful! ");
-                                System.out.printf("Your balance is $%.2f\n", balance);
+                        } else System.out.printf(" Insufficient balance. Your balance is $%.2f\n", balance);
 
-                            } else System.out.printf(" Insufficient balance. Your balance is $%.2f\n", balance);
-
-                        }else System.out.println("Invalid amount. Must be greater than 0.");
-                        break;
-                    case 3:
-                        System.out.printf("Your balance is $%.2f\n", balance);
-                        break;
-                    case 4:
-                        run =false;
-                        break;
-                    default:
-                        System.out.println("invalid number");
-                }
+                    } else System.out.println("Invalid amount. Must be greater than 0.");
+                    break;
+                case 3:
+                    System.out.printf("Your balance is $%.2f\n", balance);
+                    break;
+                case 4:
+                    run = false;
+                    break;
+                default:
+                    System.out.println("invalid number");
             }
-            System.out.println("thx for using ATM");
         }
+        System.out.println("Thank you for using the ATM");
+    }
     }
